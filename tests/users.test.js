@@ -6,9 +6,11 @@ const request = require("supertest");
 
 describe("Users controller", () => {
 
-    test.skip("Get all users route returns array of users", async () => {
+    test("Get all users route returns array of users", async () => {
         // GET localhost:3000/users
         const response = await request(app).get("/users");
+
+        expect(response.body.data.length).toBe(6);
     });
 
     test.skip("Get user by ID route returns a single user", async () => {
